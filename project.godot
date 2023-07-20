@@ -1,0 +1,32 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Mineplacer"
+run/main_scene="res://Scenes/title.tscn"
+config/features=PackedStringArray("4.0", "GL Compatibility")
+boot_splash/bg_color=Color(0.0470588, 0.164706, 0.129412, 1)
+config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*res://Scripts/Globals.gd"
+Transition="*res://Scenes/transitionScene.tscn"
+
+[gui]
+
+fonts/dynamic_fonts/use_oversampling=false
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.0431373, 0.352941, 0.298039, 1)

@@ -1,0 +1,913 @@
+[gd_scene load_steps=29 format=3 uid="uid://xhak1qdcuau6"]
+
+[ext_resource type="Texture2D" uid="uid://d4f3k2jic7iou" path="res://Images/Window.png" id="1_oorbq"]
+[ext_resource type="FontFile" uid="uid://b3dcekc5jvh23" path="res://PixelOperator.ttf" id="2_musao"]
+[ext_resource type="FontFile" uid="uid://ceb45ku3m2e66" path="res://Retro Gaming.ttf" id="3_dks0h"]
+[ext_resource type="Texture2D" uid="uid://codtgymoew0w4" path="res://Images/LongButton_hover.png" id="3_w084w"]
+[ext_resource type="Texture2D" uid="uid://do7uffubmx6qd" path="res://Images/MineGrid_mine.png" id="4_8cjm3"]
+[ext_resource type="Texture2D" uid="uid://k5hwegjvf0ee" path="res://Images/MineGrid.png" id="5_dbxbd"]
+[ext_resource type="Texture2D" uid="uid://drmyltm82hkv8" path="res://Images/LongButton.png" id="6_4fko0"]
+[ext_resource type="Script" path="res://Scripts/how2play.gd" id="6_bm1u1"]
+[ext_resource type="Script" path="res://Scripts/Retry.gd" id="7_7xfwg"]
+[ext_resource type="Texture2D" uid="uid://ch5qkm5ny12in" path="res://Images/LongButton_pressed.png" id="7_v45yf"]
+[ext_resource type="Texture2D" uid="uid://cjqv2ukr7a5ea" path="res://Images/Window2.png" id="8_yxulr"]
+[ext_resource type="Texture2D" uid="uid://cim7xqq8iekwc" path="res://Images/Smiley.png" id="9_kt82b"]
+[ext_resource type="Texture2D" uid="uid://4em6yc7mh3dj" path="res://Images/Cursor.png" id="9_ytjed"]
+[ext_resource type="Texture2D" uid="uid://edmr623wubnl" path="res://Images/MineGrid_ok.png" id="10_ahib2"]
+[ext_resource type="Texture2D" uid="uid://s3tcpf3u5igr" path="res://Images/Mine.png" id="10_ojag5"]
+[ext_resource type="Texture2D" uid="uid://ctq7iu6bldmn1" path="res://Images/Numbers/One.png" id="11_l1nh6"]
+[ext_resource type="Texture2D" uid="uid://cgljy48os0lbt" path="res://Images/Numbers/Three.png" id="12_c7n3y"]
+[ext_resource type="Texture2D" uid="uid://cgdca27xy7fte" path="res://Images/Numbers/Two.png" id="13_nwg5f"]
+[ext_resource type="Texture2D" uid="uid://cg1qey8k0q2kl" path="res://Images/MineGrid_number.png" id="14_fs46r"]
+[ext_resource type="Script" path="res://Scripts/tuto.gd" id="18_xeutq"]
+[ext_resource type="PackedScene" uid="uid://d4ai4sd727fpl" path="res://Objects/bg.tscn" id="20_2eyp7"]
+[ext_resource type="AudioStream" uid="uid://q4px5qhdd2fq" path="res://Sounds/15sec-2021-08-30_-_Boss_Time_-_www.FesliyanStudios.com.mp3" id="22_nptm4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_567k6"]
+font = ExtResource("2_musao")
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rtfsj"]
+font = ExtResource("2_musao")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_pqbpi"]
+font = ExtResource("3_dks0h")
+font_size = 36
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jljb3"]
+font = ExtResource("2_musao")
+
+[sub_resource type="LabelSettings" id="LabelSettings_85kle"]
+font = ExtResource("2_musao")
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3oeog"]
+font = ExtResource("2_musao")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="title" type="Node2D"]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 520.0
+offset_top = 360.0
+offset_right = 616.0
+offset_bottom = 400.0
+texture_normal = ExtResource("6_4fko0")
+texture_pressed = ExtResource("7_v45yf")
+texture_hover = ExtResource("3_w084w")
+script = ExtResource("7_7xfwg")
+
+[node name="Label" type="Label" parent="TextureButton"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 7.0
+offset_right = 72.0
+offset_bottom = 33.0
+text = "Start
+"
+label_settings = SubResource("LabelSettings_567k6")
+
+[node name="TextureButton2" type="TextureButton" parent="." node_paths=PackedStringArray("window")]
+offset_left = 521.0
+offset_top = 415.0
+offset_right = 617.0
+offset_bottom = 455.0
+texture_normal = ExtResource("6_4fko0")
+texture_pressed = ExtResource("7_v45yf")
+texture_hover = ExtResource("3_w084w")
+script = ExtResource("6_bm1u1")
+window = NodePath("../Howtoplay")
+
+[node name="Label" type="Label" parent="TextureButton2"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 7.0
+offset_right = 84.0
+offset_bottom = 33.0
+text = "How to Play"
+label_settings = SubResource("LabelSettings_567k6")
+
+[node name="Window" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(567, 322)
+texture = ExtResource("1_oorbq")
+
+[node name="Label" type="Label" parent="Window"]
+offset_left = -144.0
+offset_top = -232.0
+offset_right = 8.0
+offset_bottom = -208.0
+text = "Mineplacer.exe"
+label_settings = SubResource("LabelSettings_rtfsj")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Window"]
+position = Vector2(2.20001, -37.8)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("14_fs46r")
+
+[node name="smile" type="Sprite2D" parent="Window"]
+position = Vector2(2.20001, -37.8)
+texture = ExtResource("9_kt82b")
+
+[node name="Sprite2D" type="Sprite2D" parent="Window"]
+modulate = Color(1, 1, 1, 0.156863)
+position = Vector2(-1, -126)
+scale = Vector2(3.56, 3.72)
+texture = ExtResource("10_ojag5")
+
+[node name="title" type="Label" parent="."]
+offset_left = 446.0
+offset_top = 171.0
+offset_right = 719.0
+offset_bottom = 225.0
+text = "Mineplacer"
+label_settings = SubResource("LabelSettings_pqbpi")
+
+[node name="copyr" type="Label" parent="."]
+offset_left = 513.0
+offset_top = 520.0
+offset_right = 633.0
+offset_bottom = 551.0
+text = "2023 LightPotato"
+label_settings = SubResource("LabelSettings_jljb3")
+
+[node name="MineGridMine" type="Sprite2D" parent="."]
+position = Vector2(523, 285)
+texture = ExtResource("4_8cjm3")
+
+[node name="MineGrid" type="Sprite2D" parent="."]
+position = Vector2(617, 285)
+texture = ExtResource("5_dbxbd")
+
+[node name="Howtoplay" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Howtoplay"]
+z_index = 1
+layout_mode = 0
+offset_left = 343.0
+offset_top = 176.0
+offset_right = 495.0
+offset_bottom = 200.0
+text = "How to Play"
+label_settings = SubResource("LabelSettings_rtfsj")
+
+[node name="1" type="TextureRect" parent="Howtoplay"]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 168.0
+offset_right = 807.0
+offset_bottom = 408.0
+mouse_filter = 2
+texture = ExtResource("8_yxulr")
+
+[node name="Label" type="Label" parent="Howtoplay/1"]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 73.0
+offset_right = 336.0
+offset_bottom = 111.0
+text = "Click on a tile to place a mine.
+Click again to remove a mine."
+label_settings = SubResource("LabelSettings_85kle")
+
+[node name="TextureRect2" type="TextureRect" parent="Howtoplay/1"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 130.0
+offset_right = 224.0
+offset_bottom = 170.0
+texture = ExtResource("5_dbxbd")
+
+[node name="TextureRect3" type="TextureRect" parent="Howtoplay/1"]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 130.0
+offset_right = 298.0
+offset_bottom = 170.0
+texture = ExtResource("4_8cjm3")
+
+[node name="TextureRect" type="TextureRect" parent="Howtoplay/1"]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 152.0
+offset_right = 218.0
+offset_bottom = 172.0
+texture = ExtResource("9_ytjed")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Howtoplay/1"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 154.0
+offset_right = 297.0
+offset_bottom = 174.0
+texture = ExtResource("9_ytjed")
+expand_mode = 1
+
+[node name="2" type="TextureRect" parent="Howtoplay"]
+visible = false
+layout_mode = 0
+offset_left = 327.0
+offset_top = 168.0
+offset_right = 807.0
+offset_bottom = 408.0
+mouse_filter = 2
+texture = ExtResource("8_yxulr")
+
+[node name="Label" type="Label" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 61.0
+offset_right = 400.0
+offset_bottom = 118.0
+text = "The number on tiles indicates the number of mines
+that should be placed near that tile."
+label_settings = SubResource("LabelSettings_85kle")
+horizontal_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 140.0
+offset_right = 198.0
+offset_bottom = 163.0
+texture = ExtResource("10_ahib2")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 115.0
+offset_right = 173.0
+offset_bottom = 138.0
+texture = ExtResource("4_8cjm3")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 115.0
+offset_right = 198.0
+offset_bottom = 138.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 115.0
+offset_right = 223.0
+offset_bottom = 138.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 140.0
+offset_right = 173.0
+offset_bottom = 163.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect7" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 140.0
+offset_right = 223.0
+offset_bottom = 163.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect8" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 165.0
+offset_right = 173.0
+offset_bottom = 188.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect9" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 165.0
+offset_right = 198.0
+offset_bottom = 188.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect10" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 165.0
+offset_right = 223.0
+offset_bottom = 188.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect11" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 140.0
+offset_right = 198.0
+offset_bottom = 163.0
+texture = ExtResource("11_l1nh6")
+expand_mode = 1
+
+[node name="TextureRect12" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 140.0
+offset_right = 303.0
+offset_bottom = 163.0
+texture = ExtResource("10_ahib2")
+expand_mode = 1
+
+[node name="TextureRect13" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 115.0
+offset_right = 278.0
+offset_bottom = 138.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect14" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 115.0
+offset_right = 303.0
+offset_bottom = 138.0
+texture = ExtResource("4_8cjm3")
+expand_mode = 1
+
+[node name="TextureRect15" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 115.0
+offset_right = 328.0
+offset_bottom = 138.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect16" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 140.0
+offset_right = 278.0
+offset_bottom = 163.0
+texture = ExtResource("4_8cjm3")
+expand_mode = 1
+
+[node name="TextureRect17" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 140.0
+offset_right = 328.0
+offset_bottom = 163.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect18" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 165.0
+offset_right = 278.0
+offset_bottom = 188.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect19" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 165.0
+offset_right = 303.0
+offset_bottom = 188.0
+texture = ExtResource("4_8cjm3")
+expand_mode = 1
+
+[node name="TextureRect20" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 165.0
+offset_right = 328.0
+offset_bottom = 188.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect21" type="TextureRect" parent="Howtoplay/2"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 140.0
+offset_right = 303.0
+offset_bottom = 163.0
+texture = ExtResource("12_c7n3y")
+expand_mode = 1
+
+[node name="3" type="TextureRect" parent="Howtoplay"]
+visible = false
+layout_mode = 0
+offset_left = 327.0
+offset_top = 168.0
+offset_right = 807.0
+offset_bottom = 408.0
+mouse_filter = 2
+texture = ExtResource("8_yxulr")
+
+[node name="Label" type="Label" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 61.0
+offset_right = 457.0
+offset_bottom = 118.0
+text = "If you're done placing, press <Space>.
+The more tiles satisfy the condition, the more score and time you get."
+label_settings = SubResource("LabelSettings_85kle")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 135.0
+offset_right = 455.0
+offset_bottom = 192.0
+text = "<"
+label_settings = SubResource("LabelSettings_3oeog")
+horizontal_alignment = 1
+
+[node name="TextureRect12" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 140.0
+offset_right = 303.0
+offset_bottom = 163.0
+texture = ExtResource("10_ahib2")
+expand_mode = 1
+
+[node name="TextureRect13" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 115.0
+offset_right = 278.0
+offset_bottom = 138.0
+texture = ExtResource("10_ahib2")
+expand_mode = 1
+
+[node name="TextureRect14" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 115.0
+offset_right = 303.0
+offset_bottom = 138.0
+texture = ExtResource("4_8cjm3")
+expand_mode = 1
+
+[node name="TextureRect15" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 115.0
+offset_right = 328.0
+offset_bottom = 138.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect36" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 140.0
+offset_right = 303.0
+offset_bottom = 163.0
+texture = ExtResource("10_ahib2")
+expand_mode = 1
+
+[node name="TextureRect37" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 115.0
+offset_right = 278.0
+offset_bottom = 138.0
+texture = ExtResource("10_ahib2")
+expand_mode = 1
+
+[node name="TextureRect38" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 115.0
+offset_right = 303.0
+offset_bottom = 138.0
+texture = ExtResource("4_8cjm3")
+expand_mode = 1
+
+[node name="TextureRect39" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 115.0
+offset_right = 328.0
+offset_bottom = 138.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect16" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 140.0
+offset_right = 278.0
+offset_bottom = 163.0
+texture = ExtResource("4_8cjm3")
+expand_mode = 1
+
+[node name="TextureRect17" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 140.0
+offset_right = 328.0
+offset_bottom = 163.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect18" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 165.0
+offset_right = 278.0
+offset_bottom = 188.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect19" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 165.0
+offset_right = 303.0
+offset_bottom = 188.0
+texture = ExtResource("4_8cjm3")
+expand_mode = 1
+
+[node name="TextureRect20" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 165.0
+offset_right = 328.0
+offset_bottom = 188.0
+texture = ExtResource("10_ahib2")
+expand_mode = 1
+
+[node name="TextureRect21" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 140.0
+offset_right = 303.0
+offset_bottom = 163.0
+texture = ExtResource("12_c7n3y")
+expand_mode = 1
+
+[node name="TextureRect22" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 115.0
+offset_right = 278.0
+offset_bottom = 138.0
+texture = ExtResource("13_nwg5f")
+expand_mode = 1
+
+[node name="TextureRect23" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 165.0
+offset_right = 328.0
+offset_bottom = 188.0
+texture = ExtResource("11_l1nh6")
+expand_mode = 1
+
+[node name="TextureRect24" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 140.0
+offset_right = 194.0
+offset_bottom = 163.0
+texture = ExtResource("14_fs46r")
+expand_mode = 1
+
+[node name="TextureRect25" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 115.0
+offset_right = 169.0
+offset_bottom = 138.0
+texture = ExtResource("10_ahib2")
+expand_mode = 1
+
+[node name="TextureRect26" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 115.0
+offset_right = 194.0
+offset_bottom = 138.0
+texture = ExtResource("4_8cjm3")
+expand_mode = 1
+
+[node name="TextureRect27" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 115.0
+offset_right = 219.0
+offset_bottom = 138.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect28" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 140.0
+offset_right = 169.0
+offset_bottom = 163.0
+texture = ExtResource("4_8cjm3")
+expand_mode = 1
+
+[node name="TextureRect29" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 140.0
+offset_right = 219.0
+offset_bottom = 163.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect30" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 165.0
+offset_right = 169.0
+offset_bottom = 188.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect31" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 165.0
+offset_right = 194.0
+offset_bottom = 188.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect32" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 165.0
+offset_right = 219.0
+offset_bottom = 188.0
+texture = ExtResource("14_fs46r")
+expand_mode = 1
+
+[node name="TextureRect33" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 140.0
+offset_right = 194.0
+offset_bottom = 163.0
+texture = ExtResource("12_c7n3y")
+expand_mode = 1
+
+[node name="TextureRect34" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 115.0
+offset_right = 169.0
+offset_bottom = 138.0
+texture = ExtResource("13_nwg5f")
+expand_mode = 1
+
+[node name="TextureRect35" type="TextureRect" parent="Howtoplay/3"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 165.0
+offset_right = 219.0
+offset_bottom = 188.0
+texture = ExtResource("11_l1nh6")
+expand_mode = 1
+
+[node name="4" type="TextureRect" parent="Howtoplay"]
+visible = false
+layout_mode = 0
+offset_left = 327.0
+offset_top = 168.0
+offset_right = 807.0
+offset_bottom = 408.0
+mouse_filter = 2
+texture = ExtResource("8_yxulr")
+
+[node name="Label" type="Label" parent="Howtoplay/4"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 97.0
+offset_right = 455.0
+offset_bottom = 154.0
+text = "<Space> key also works as reroll.
+A new board will be given whenever you press <Space>."
+label_settings = SubResource("LabelSettings_85kle")
+horizontal_alignment = 1
+
+[node name="5" type="TextureRect" parent="Howtoplay"]
+visible = false
+layout_mode = 0
+offset_left = 327.0
+offset_top = 168.0
+offset_right = 807.0
+offset_bottom = 408.0
+mouse_filter = 2
+texture = ExtResource("8_yxulr")
+
+[node name="Label" type="Label" parent="Howtoplay/5"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 62.0
+offset_right = 459.0
+offset_bottom = 119.0
+text = "If all tiles satisfy the condition, you'll get bonus score and time.
+Note that it's not always possible to get the bonus, 
+depending on the board."
+label_settings = SubResource("LabelSettings_85kle")
+horizontal_alignment = 1
+
+[node name="TextureRect17" type="TextureRect" parent="Howtoplay/5"]
+layout_mode = 0
+offset_left = 239.0
+offset_top = 139.0
+offset_right = 262.0
+offset_bottom = 162.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect18" type="TextureRect" parent="Howtoplay/5"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 139.0
+offset_right = 237.0
+offset_bottom = 162.0
+texture = ExtResource("10_ahib2")
+expand_mode = 1
+
+[node name="TextureRect19" type="TextureRect" parent="Howtoplay/5"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 164.0
+offset_right = 237.0
+offset_bottom = 187.0
+texture = ExtResource("4_8cjm3")
+expand_mode = 1
+
+[node name="TextureRect20" type="TextureRect" parent="Howtoplay/5"]
+layout_mode = 0
+offset_left = 239.0
+offset_top = 164.0
+offset_right = 262.0
+offset_bottom = 187.0
+texture = ExtResource("5_dbxbd")
+expand_mode = 1
+
+[node name="TextureRect21" type="TextureRect" parent="Howtoplay/5"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 139.0
+offset_right = 237.0
+offset_bottom = 162.0
+texture = ExtResource("11_l1nh6")
+expand_mode = 1
+
+[node name="TextureRect22" type="TextureRect" parent="Howtoplay/5"]
+layout_mode = 0
+offset_left = 239.0
+offset_top = 164.0
+offset_right = 262.0
+offset_bottom = 187.0
+texture = ExtResource("13_nwg5f")
+expand_mode = 1
+
+[node name="TextureButton2" type="TextureButton" parent="Howtoplay" node_paths=PackedStringArray("how2play")]
+layout_mode = 0
+offset_left = 694.0
+offset_top = 352.0
+offset_right = 790.0
+offset_bottom = 392.0
+texture_normal = ExtResource("6_4fko0")
+texture_pressed = ExtResource("7_v45yf")
+texture_hover = ExtResource("3_w084w")
+flip_v = true
+script = ExtResource("18_xeutq")
+how2play = NodePath("..")
+
+[node name="Label" type="Label" parent="Howtoplay/TextureButton2"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 7.0
+offset_right = 104.0
+offset_bottom = 33.0
+text = "Next"
+label_settings = SubResource("LabelSettings_567k6")
+
+[node name="Gamemode" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Gamemode"]
+z_index = 1
+layout_mode = 0
+offset_left = 343.0
+offset_top = 176.0
+offset_right = 495.0
+offset_bottom = 200.0
+text = "Choose gamemode"
+label_settings = SubResource("LabelSettings_rtfsj")
+
+[node name="one" type="TextureRect" parent="Gamemode"]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 168.0
+offset_right = 807.0
+offset_bottom = 408.0
+mouse_filter = 2
+texture = ExtResource("8_yxulr")
+
+[node name="Instructions" type="Label" parent="Gamemode/one"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 64.0
+offset_right = 416.0
+offset_bottom = 197.0
+text = "Classic: Places mines as classic minesweeper would do.
+Ensures all-clearable boards.
+
+Random: Just places numbers randomly.
+Does NOT ensure all-clearable boards."
+label_settings = SubResource("LabelSettings_85kle")
+horizontal_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="Gamemode"]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 342.0
+offset_right = 534.0
+offset_bottom = 382.0
+texture_normal = ExtResource("6_4fko0")
+texture_pressed = ExtResource("7_v45yf")
+texture_hover = ExtResource("3_w084w")
+flip_v = true
+
+[node name="Label" type="Label" parent="Gamemode/TextureButton2"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 7.0
+offset_right = 95.0
+offset_bottom = 33.0
+text = "Classic"
+label_settings = SubResource("LabelSettings_567k6")
+
+[node name="TextureButton3" type="TextureButton" parent="Gamemode"]
+layout_mode = 0
+offset_left = 606.0
+offset_top = 341.0
+offset_right = 702.0
+offset_bottom = 381.0
+texture_normal = ExtResource("6_4fko0")
+texture_pressed = ExtResource("7_v45yf")
+texture_hover = ExtResource("3_w084w")
+flip_v = true
+
+[node name="Label" type="Label" parent="Gamemode/TextureButton3"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 7.0
+offset_right = 95.0
+offset_bottom = 33.0
+text = "Random"
+label_settings = SubResource("LabelSettings_567k6")
+
+[node name="TextureRect" parent="." instance=ExtResource("20_2eyp7")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_nptm4")
+pitch_scale = 0.9
+autoplay = true
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton2" to="TextureButton2" method="_on_pressed"]
+[connection signal="pressed" from="Howtoplay/TextureButton2" to="Howtoplay/TextureButton2" method="_on_pressed"]
+[connection signal="pressed" from="Gamemode/TextureButton2" to="Gamemode/TextureButton2" method="_on_pressed"]
+[connection signal="pressed" from="Gamemode/TextureButton3" to="Gamemode/TextureButton3" method="_on_pressed"]
